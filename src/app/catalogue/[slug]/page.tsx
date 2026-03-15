@@ -32,10 +32,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-// Génère les slugs statiques pour les pages publiées (SSG)
+// generateStaticParams s'exécute au build, hors contexte HTTP.
+// On utilise le client admin (pas de cookies requis) pour cette fonction uniquement.
 export async function generateStaticParams() {
-  const supabase = createClient()
-  const { data: products } = await supabase
+  const { createClient: createAdminClient } = await import('@supabase/supabase-js')
+  const admin = createAdminClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+  const { data: products } = await admin
     .from('products')
     .select('slug')
     .eq('status', 'published')
@@ -180,7 +185,7 @@ export default async function ProductPage({ params }: Props) {
             <div>
               <h2 className="text-base font-semibold text-stone-900 mb-4">Questions fréquentes</h2>
               <div className="space-y-4">
-                [
+                {[
                   {
                     q: `Avec quels outils IA ces prompts fonctionnent-ils ?`,
                     a: `Tous les prompts sont testés et compatibles avec ChatGPT, Claude et Gemini. Ils fonctionnent avec n'importe quel LLM de dernière génération.`,
