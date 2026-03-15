@@ -3,10 +3,8 @@ import { NextResponse, type NextRequest } from 'next/server'
 
 // Routes qui nécessitent une connexion
 const PROTECTED_ROUTES = ['/dashboard', '/profil']
-
 // Routes réservées aux admins
 const ADMIN_ROUTES = ['/admin']
-
 // Routes accessibles uniquement aux visiteurs non connectés
 const AUTH_ROUTES = ['/auth/login', '/auth/register']
 
@@ -21,7 +19,7 @@ export async function middleware(request: NextRequest) {
         getAll() {
           return request.cookies.getAll()
         },
-        setAll(cookiesToSet) {
+        setAll(cookiesToSet: Array<{ name: string; value: any; options?: any }>) {
           cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value)
           )
@@ -40,7 +38,6 @@ export async function middleware(request: NextRequest) {
   // Utilisateur non connecté qui essaie d'accéder à une route protégée
   const isProtected = PROTECTED_ROUTES.some(r => pathname.startsWith(r))
   const isAdmin = ADMIN_ROUTES.some(r => pathname.startsWith(r))
-
   if ((isProtected || isAdmin) && !user) {
     const loginUrl = new URL('/auth/login', request.url)
     loginUrl.searchParams.set('redirect', pathname)
@@ -60,7 +57,6 @@ export async function middleware(request: NextRequest) {
       .select('role')
       .eq('id', user.id)
       .single()
-
     if (profile?.role !== 'admin') {
       return NextResponse.redirect(new URL('/dashboard', request.url))
     }
