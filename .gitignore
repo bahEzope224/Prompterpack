@@ -1,0 +1,9 @@
+node_modules
+
+.env
+
+.env.local
+
+supabase-schema.sql
+
+README-info.md

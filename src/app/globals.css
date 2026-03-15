@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-amber-50:  #FAEEDA;
+    --color-amber-100: #FAC775;
+    --color-amber-200: #EF9F27;
+    --color-amber-400: #BA7517;
+    --color-amber-600: #854F0B;
+    --color-amber-800: #633806;
+    --color-amber-900: #412402;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans;
+  }
+
+  /* Focus visible — accessibilité */
+  :focus-visible {
+    @apply outline-none ring-2 ring-amber-400 ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Bouton primaire */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg
+           bg-amber-400 text-amber-900 font-medium text-sm px-4 py-2.5
+           hover:bg-amber-600 hover:text-amber-50
+           transition-colors duration-150 cursor-pointer;
+  }
+
+  /* Bouton secondaire */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg
+           border border-stone-200 bg-white text-stone-700 font-medium text-sm px-4 py-2.5
+           hover:bg-stone-50 hover:border-stone-300
+           transition-colors duration-150 cursor-pointer;
+  }
+
+  /* Bouton ghost */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg
+           text-stone-600 font-medium text-sm px-4 py-2.5
+           hover:bg-stone-100 hover:text-stone-900
+           transition-colors duration-150 cursor-pointer;
+  }
+
+  /* Card standard */
+  .card {
+    @apply bg-white border border-stone-200 rounded-xl p-5;
+  }
+
+  /* Badge catégorie */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-amber {
+    @apply badge bg-amber-50 text-amber-800;
+  }
+
+  .badge-teal {
+    @apply badge bg-teal-50 text-teal-800;
+  }
+
+  .badge-violet {
+    @apply badge bg-violet-50 text-violet-800;
+  }
+
+  .badge-success {
+    @apply badge bg-green-50 text-green-800;
+  }
+
+  /* Input standard */
+  .input {
+    @apply w-full rounded-lg border border-stone-200 bg-white px-3.5 py-2.5
+           text-sm text-stone-900 placeholder-stone-400
+           focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent
+           transition duration-150;
+  }
+
+  /* Label */
+  .label {
+    @apply block text-sm font-medium text-stone-700 mb-1.5;
+  }
+
+  /* Texte muted */
+  .text-muted {
+    @apply text-stone-500;
+  }
+}

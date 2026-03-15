@@ -1,0 +1,126 @@
+# ============================================================
+# PromptPack — Dépendances du projet
+# ============================================================
+# Note : ce projet est en JavaScript/TypeScript (Next.js).
+# Le gestionnaire de paquets est npm, pas pip.
+# Ce fichier est une référence lisible. Le fichier d'installation
+# réel est package.json (géré automatiquement par npm).
+#
+# Pour installer toutes les dépendances : npm install
+# ============================================================
+
+
+# ──────────────────────────────────────────────
+# DÉPENDANCES DE PRODUCTION
+# ──────────────────────────────────────────────
+
+next@14.2.15
+# Framework React fullstack — routing, SSR, SSG, API Routes
+# https://nextjs.org
+
+react@18.x
+react-dom@18.x
+# Librairie UI — rendu des composants
+# https://react.dev
+
+@supabase/supabase-js@2.x
+# Client JavaScript officiel Supabase
+# Authentification, base de données, storage
+# https://supabase.com/docs/reference/javascript
+
+@supabase/ssr@0.x
+# Supabase adapté au rendu serveur (Next.js App Router)
+# Gestion des cookies httpOnly pour l'auth
+# https://supabase.com/docs/guides/auth/server-side/nextjs
+
+stripe@16.x
+# SDK Stripe officiel — Checkout Sessions, webhooks
+# Installé au Sprint 4
+# https://stripe.com/docs/api
+
+resend@4.x
+# Service d'emails transactionnels
+# Confirmation de commande, reset de mot de passe
+# Installé au Sprint 4
+# https://resend.com/docs
+
+geist@1.x
+# Police Geist de Vercel (sans-serif + mono)
+# https://vercel.com/font
+
+
+# ──────────────────────────────────────────────
+# DÉPENDANCES DE DÉVELOPPEMENT
+# ──────────────────────────────────────────────
+
+typescript@5.x
+# Typage statique JavaScript
+# https://www.typescriptlang.org
+
+tailwindcss@3.x
+# Framework CSS utilitaire
+# https://tailwindcss.com
+
+autoprefixer@10.x
+# Plugin PostCSS — préfixes CSS automatiques pour compatibilité navigateurs
+
+postcss@8.x
+# Outil de transformation CSS (requis par Tailwind)
+
+eslint@8.x
+eslint-config-next@14.x
+# Linter JavaScript/TypeScript — détecte les erreurs de code
+
+@types/node@20.x
+@types/react@18.x
+@types/react-dom@18.x
+# Types TypeScript pour Node.js et React
+
+
+# ──────────────────────────────────────────────
+# OUTILS SYSTÈME REQUIS (à installer sur votre machine)
+# ──────────────────────────────────────────────
+
+Node.js >= 18.17.0
+# Environnement d'exécution JavaScript
+# Télécharger : https://nodejs.org (choisir la version LTS)
+# Vérifier : node --version
+
+npm >= 9.x
+# Gestionnaire de paquets (inclus avec Node.js)
+# Vérifier : npm --version
+
+Git >= 2.x
+# Gestion de version
+# Télécharger : https://git-scm.com
+# Vérifier : git --version
+
+
+# ──────────────────────────────────────────────
+# SERVICES EXTERNES REQUIS (comptes à créer)
+# ──────────────────────────────────────────────
+
+Supabase (gratuit)
+# Base de données PostgreSQL + Auth + Storage
+# Créer un compte : https://supabase.com
+# Clés nécessaires : NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY
+
+Stripe (gratuit en mode test)
+# Paiement en ligne sécurisé
+# Créer un compte : https://stripe.com
+# Clés nécessaires : STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+
+Resend (gratuit jusqu'à 3 000 emails/mois)
+# Emails transactionnels (confirmation, reset password)
+# Créer un compte : https://resend.com
+# Clé nécessaire : RESEND_API_KEY
+
+
+# ──────────────────────────────────────────────
+# DÉPLOIEMENT (optionnel, sprint final)
+# ──────────────────────────────────────────────
+
+Vercel (gratuit pour les projets personnels)
+# Hébergement recommandé pour Next.js
+# https://vercel.com
+# Déploiement : npx vercel ou via GitHub integration
