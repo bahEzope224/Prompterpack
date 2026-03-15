@@ -1,9 +1,39 @@
-# PromptPack — Guide d'installation
+# Prompterpack
 
-Plateforme e-commerce de packs de prompts IA.  
-Stack : **Next.js 14 · Supabase · Stripe · Tailwind CSS · TypeScript**
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.15-black.svg?style=flat&logo=next.js)](https://nextjs.org/) [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-green.svg?style=flat&logo=supabase)](https://supabase.com/) [![Stripe](https://img.shields.io/badge/Stripe-Payments-blueviolet.svg?style=flat&logo=stripe)](https://stripe.com/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-UI-blue.svg?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
 
----
+## Description
+
+Prompterpack est une plateforme e-commerce pour la vente de packs de prompts IA prêts à l'emploi. Les packs sont adaptés à différents profils (étudiants, freelances, entrepreneurs, marketing, tech, RH) et visent à booster la productivité avec des outils comme ChatGPT, Claude et Gemini.
+
+Le site utilise le **App Router** de Next.js pour une navigation fluide, Supabase pour la gestion de la base de données, l'authentification et le stockage, et Stripe pour les paiements sécurisés. Les prompts sont protégés contre la revente via RLS, URLs signées et watermarking.
+
+Projet développé en 2026, avec un focus sur la sécurité, la monétisation et l'expérience utilisateur.
+
+## Fonctionnalités
+
+- **Catalogue de produits** : Liste filtrable par catégorie, tri (prix, nouveauté), avec cartes produits.
+- **Pages dynamiques** : Détails produits (`/catalogue/[slug]`), dashboard utilisateur pour accès aux achats.
+- **Authentification** : Inscription/connexion via Supabase (email/mot de passe, potentiellement OAuth).
+- **Paiements** : Intégration Stripe pour checkout sécurisé, avec gestion des commandes et paiements en base.
+- **Protection anti-revente** : 
+  - Row Level Security (RLS) sur les tables Supabase.
+  - URLs signées temporaires pour downloads (expire en 1h).
+  - Watermarking personnalisé sur PDFs (avec user ID/email).
+- **Filtres et catégories** : Sidebar pour filtres, page catégories dédiée.
+- **Landing page** : Hero, sections catégories, packs phares, CTA.
+- **Admin** : Client Supabase admin pour inserts sécurisés (bypass RLS).
+- **Autres** : Confirmation paiement, not-found page, footer/navbar personnalisés.
+
+## Stack Technique
+
+- **Frontend/Backend** : Next.js 14.2.15 (App Router, Server Components).
+- **Base de données & Auth** : Supabase (PostgreSQL, RLS activé).
+- **Paiements** : Stripe (checkout sessions).
+- **CSS/UI** : Tailwind CSS, Geist fonts (sans/mono).
+- **Outils** : TypeScript, pdf-lib (pour watermarking), @supabase/ssr & @supabase/supabase-js.
+- **Environnement** : Node.js 20+.
+
 
 ## Prérequis
 
@@ -239,3 +269,10 @@ npm run dev
 
 **Erreur "relation does not exist"**
 → Le schéma SQL n'a pas été exécuté. Retournez à l'étape 2 et relancez `supabase-schema.sql` dans l'éditeur SQL de Supabase.
+
+
+## Contact
+
+Pour questions : [bahibrahimatalibe@gmail.com] ou ouvrez une issue sur GitHub.
+
+Merci d'utiliser Prompterpack ! 🚀
