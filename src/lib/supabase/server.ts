@@ -2,6 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import type { Database } from '@/types/database'
 
+// ====================== NORMAL CLIENT (for Server Components & Route Handlers with cookies) ======================
 export function createClient() {
   const cookieStore = cookies()
 
@@ -26,5 +27,4 @@ export function createClient() {
     }
   )
 }
-
 

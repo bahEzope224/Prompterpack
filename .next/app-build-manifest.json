@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/catalogue/[slug]/page": [
+    "/catalogue/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/catalogue/[slug]/page.js"
+      "static/chunks/app/catalogue/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,10 +16,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/_not-found/page": [
+    "/categories/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/categories/page.js"
     ]
   }
 }

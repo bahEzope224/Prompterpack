@@ -1,8 +1,8 @@
-// File: /Users/ibrahimabah/prompter/src/app/catalogue/[slug]/page.tsx
-import * as entry from '../../../../../src/app/catalogue/[slug]/page.js'
+// File: /Users/ibrahimabah/prompter/src/app/categories/page.tsx
+import * as entry from '../../../../src/app/categories/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../../src/app/catalogue/[slug]/page.js')
+type TEntry = typeof import('../../../../src/app/categories/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
